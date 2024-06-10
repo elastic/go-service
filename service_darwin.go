@@ -338,9 +338,25 @@ var launchdConfig = `<?xml version="1.0" encoding="UTF-8"?>
 	<key>UserName</key>
 	<string>{{html .UserName}}</string>
 	{{- end}}
+    {{- if .Config.Option.GroupName}}
+	<key>GroupName</key>
+    <string>{{html .Config.Option.GroupName}}</string>
+	{{- end}}
 	{{- if .WorkingDirectory}}
 	<key>WorkingDirectory</key>
 	<string>{{html .WorkingDirectory}}</string>
+	{{- end}}
+    {{- if .Config.Option.ExitTimeOut}}
+    <key>ExitTimeOut</key>
+    <integer>{{html .Config.Option.ExitTimeOut}}</integer>
+    {{- end}}
+    {{- if .Config.Option.StandardOutPath}}
+	<key>StandardOutPath</key>
+    <string>{{html .Config.Option.StandardOutPath}}</string>
+	{{- end}}
+	{{- if .Config.Option.StandardErrorPath}}
+	<key>StandardErrorPath</key>
+    <string>{{html .Config.Option.StandardErrorPath}}</string>
 	{{- end}}
 </dict>
 </plist>
