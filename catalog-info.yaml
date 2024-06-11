@@ -1,0 +1,17 @@
+# Declare a Backstage Component that represents your application.
+---
+# yaml-language-server: $schema=https://json.schemastore.org/catalog-info.json
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: go-service
+  description: Run go programs as a service on major platforms.
+  links:
+    - title: Fork from 
+      url: https://github.com/kardianos/service
+
+spec:
+  type: tool
+  owner: group:ingest-fp
+  system: platform-ingest
+  lifecycle: production
