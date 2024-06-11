@@ -311,6 +311,7 @@ ExecStart={{.Path|cmdEscape}}{{range .Arguments}} {{.|cmd}}{{end}}
 {{if .ChRoot}}RootDirectory={{.ChRoot|cmd}}{{end}}
 {{if .WorkingDirectory}}WorkingDirectory={{.WorkingDirectory|cmdEscape}}{{end}}
 {{if .UserName}}User={{.UserName}}{{end}}
+{{if .Config.Option.GroupName}}Group={{.Config.Option.GroupName}}{{end}}
 {{if .ReloadSignal}}ExecReload=/bin/kill -{{.ReloadSignal}} "$MAINPID"{{end}}
 {{if .PIDFile}}PIDFile={{.PIDFile|cmd}}{{end}}
 {{if and .LogOutput .HasOutputFileSupport -}}
@@ -320,6 +321,7 @@ StandardError=file:{{.LogDirectory}}/{{.Name}}.err
 {{if gt .LimitNOFILE -1 }}LimitNOFILE={{.LimitNOFILE}}{{end}}
 {{if .Restart}}Restart={{.Restart}}{{end}}
 {{if .SuccessExitStatus}}SuccessExitStatus={{.SuccessExitStatus}}{{end}}
+{{if .Config.Option.KillMode}}KillMode={{.Config.Option.KillMode}}{{end}}
 RestartSec=120
 EnvironmentFile=-/etc/sysconfig/{{.Name}}
 
